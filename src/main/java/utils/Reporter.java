@@ -12,6 +12,7 @@ import com.aventstack.extentreports.reporter.configuration.ExtentHtmlReporterCon
 
 public abstract class Reporter {
 
+	//public static int a=1;
 	public static ExtentHtmlReporter html;
 	public static ExtentReports extent;
 	public static ExtentTest test, suiteTest;
@@ -22,8 +23,8 @@ public abstract class Reporter {
 		html = new ExtentHtmlReporter("./reports/result.html");
 		ExtentHtmlReporterConfiguration config = html.config();
 		config.setChartVisibilityOnOpen(false);
-		config.setDocumentTitle("Koushik");
-		config.setReportName("Leaftaps");
+		config.setDocumentTitle("ganesh");
+		config.setReportName("testreport");
 		html.setAppendExisting(true);		
 		extent = new ExtentReports();		
 		extent.attachReporter(html);	

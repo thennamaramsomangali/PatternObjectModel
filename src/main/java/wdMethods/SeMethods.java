@@ -25,6 +25,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,9 +42,9 @@ public class SeMethods extends Reporter implements WdMethods{
 	public static String leadID;
 	
 	public SeMethods() {
-		prop = new Properties();
+		prop = new Properties();  //stores key/value //like hashmap
 		try {
-			prop.load(new FileInputStream(new File("./src/main/resources/config.properties")));
+			prop.load(new FileInputStream(new File("./src/main/resources/config.properties"))); 
 			sHubUrl = prop.getProperty("HUB");
 			sHubPort = prop.getProperty("PORT");
 			sUrl = prop.getProperty("URL");
@@ -68,11 +69,13 @@ public class SeMethods extends Reporter implements WdMethods{
 				}
 			else{ // this is for local run
 				if(browser.equalsIgnoreCase("chrome")){
-					//System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+					//
 					driver = new ChromeDriver();
-				}else {
-					System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
+				}else if (browser.equalsIgnoreCase("firefox")) {
 					driver = new FirefoxDriver();
+				}
+				else {
+					driver=new InternetExplorerDriver();
 				}
 			}
 			driver.manage().window().maximize();

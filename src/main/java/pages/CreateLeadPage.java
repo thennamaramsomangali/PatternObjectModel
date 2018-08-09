@@ -16,7 +16,7 @@ public class CreateLeadPage extends ProjectMethods{
 	
 	//PageFactory.initElements() method to initialize all web elements defined with @FindBy annotation.
 	//@FindBy annotation to find web elements 
-	//Using POM we can create an Object Repository, a set of web elements in seperate files along with their associated functions.
+	//Using POM we can create an Object Repository, a set of web elements in separate files along with their associated functions.
 	//Thereby keeping code clean.
 	//For any change in UI(or web elements) only page object files are required to be updated leaving test files unchanged.
 	
